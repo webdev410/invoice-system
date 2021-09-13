@@ -1,62 +1,85 @@
 <div class="row justify-content-center">
 
-    <div class="card col-12 col-md-6">
-        <h3 class="card-header">Edit Profile</h3>
-        <div class="row text-center">
-            <form class="card-body edit-profile-form">
-                <h3>Personal Info</h3>
-                <div class="form-group col-11">
-                    <input name="username" type="text" value="{{user.username}}" placeholder="Username"
-                        class="form-control" />
-                    <input name="username" type="text" value="{{user.email}}" placeholder="Email"
-                        class="form-control" />
-                </div>
-                <h3>Company Info</h3>
-                <div class="form-group col-11">
-                    <input name="company-name" type="text" value="{{user.profile.company_name}}"
-                        placeholder="Company Name" class="form-control" />
-                </div>
-                <div class="form-group col-11">
-                    <input name="profile-address-1" type="text" value="{{user.profile.address_1}}"
-                        placeholder="Address Line 1" class="form-control" />
-                    <input name="profile-address-2" type="text" value="{{user.profile.address_2}}"
-                        placeholder="Address Line 2" class="form-control" />
-                    <input name="profile-city" type="text" value="{{user.profile.city}}" placeholder="City"
-                        class="form-control" />
-                    <input name="profile-state" type="text" value="{{user.profile.state}}" placeholder="State" id=""
-                        class="form-control" />
-                    <input name="profile-zip-code" type="text" value="{{user.profile.zip_code}}" placeholder="Zip Code"
-                        id="zip" maxlength="5" class="form-control" />
-                </div>
-                <h3>Company Logo</h3>
-                <p>(will be displayed on each invoice)</p>
-                {{!-- Current Logo Div --}}
-                <a href="{{user.profile.logo_url}}">
-                    <div class="card-header">
-                        <h4>View Current Logo</h4>
-                    </div>
-                </a>
-                {{!-- FILE UPLOAD --}}
-                <div class="form-group col-11">
-                    <div class="form-group text-center">
-                        <div class="card-body">
-                            <label for="replaceLogo">Upload New Logo
-                            </label>
 
-                            <input style="text-align: center;" type="file" class="form-control-file" id="replaceLogo">
+    <h3 class="card-header " style="background-color: var(--primary); color: white; padding: 5px;">Edit Profile</h3>
+    <div class="row text-center">
+        <form class="card-body p-5 edit-profile-form">
+            <h3 class="card-header mb-2">Profile Info</h3>
+            <div class="form-group ">
+                <input name="username" type="text" value="{{user.username}}" placeholder="Username"
+                    class="form-control" />
+                <input name="username" type="text" value="{{user.email}}" placeholder="Email" class="form-control" />
+            </div>
+            <div class="form-group ">
+                <input name="company-name" type="text" value="{{user.profile.company_name}}" placeholder="Company Name"
+                    class="form-control" />
+            </div>
+            <div class="form-group ">
+                <input name="profile-address-1" type="text" value="{{user.profile.address_1}}"
+                    placeholder="Address Line 1" class="form-control" />
+                <input name="profile-address-2" type="text" value="{{user.profile.address_2}}"
+                    placeholder="Address Line 2" class="form-control" />
+                <input name="profile-city" type="text" value="{{user.profile.city}}" placeholder="City"
+                    class="form-control" />
+                <input name="profile-state" type="text" value="{{user.profile.state}}" placeholder="State" id=""
+                    class="form-control" />
+                <input name="profile-zip-code" type="text" value="{{user.profile.zip_code}}" placeholder="Zip Code"
+                    id="zip" maxlength="5" class="form-control" />
+            </div>
+
+            <div class="form-group col-12">
+                <button type="submit" class="btn btn-sm btn-primary">Save</button>
+            </div>
+        </form>
+        {{!-- FILE UPLOAD --}}
+        <div class="row justify-content-center">
+            <div class="col-12">
+
+                <div class="card  ">
+                    <div class="card-body">
+                        <h3>Company Logo</h3>
+                        <p class="card-text">(will be displayed on each invoice)</p>
+
+                        <p>Current Logo</p>
+                        <img src="{{user.profile.logo_url}}" alt="">
+                    </div>
+
+                    {{!-- Logo Div --}}
+
+                    <a href="{{user.profile.logo_url}}">
+                        <div class="card-header">
+                            <h4>View Full-Size Logo</h4>
                         </div>
-                    </div>
+                    </a>
+                    <form action="POST" class="card-body p-5 add-logo-form">
 
+                        <div class="form-group col-12">
+                            <div class="form-group text-center">
+                                <div class="card-body">
+                                    <label for="replaceLogo">Upload New Logo
+                                    </label>
+
+                                    <input style="text-align: center;" type="file" class="form-control-file"
+                                        id="replaceLogo">
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-sm btn-success">Upload & Replace</button>
+                            </div>
+
+
+                        </div>
+                    </form>
                 </div>
+            </div>
 
-
-                <div class="form-group col-11">
-                    <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
+</div>
+
+
 
 
 <script src="/js/edit-profile.js"></script>
+<script src="/js/add-logo.js"></script>

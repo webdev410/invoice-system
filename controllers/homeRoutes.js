@@ -85,7 +85,7 @@ router.get('/sent-invoices', withAuth, async (req, res) => {
 });
 
 // route for /edit-profile
-router.get('/edit-profile', withAuth, (req, res) => {
+router.get('/edit-profile/', withAuth, (req, res) => {
 
   User.findOne({
     where: {

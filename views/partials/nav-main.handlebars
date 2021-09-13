@@ -35,7 +35,7 @@
 							<a class="dropdown-item" href="#">Account Settings</a>
 							{{!-- Edit Profile  --}}
 							<a class="dropdown-item" href="/edit-profile/{{user.id}}">
-								<i class="fas fa-edit mr-2"></i>Edit Profile
+								Edit Profile
 							</a>
 						</div>
 
@@ -44,10 +44,11 @@
 
 				<li class="nav-item">
 					{{#if logged_in}}
-						{{ username}}
+
 						<a href="#" class="nav-link text-dark" id="logout">
-							{{user}}
-							<i class="fad fa-sign-out mr-2"></i>Logout </a>
+							<i class="fad fa-sign-out mr-2"></i>Logout,
+							{{username}}
+						</a>
 
 					{{else}}
 						<a class="nav-link text-dark" href="/login"><i class="fad fa-sign-out mr-2"></i>Login</a>

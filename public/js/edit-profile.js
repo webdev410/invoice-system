@@ -9,7 +9,7 @@ async function profileFormHandler(event) {
     const state = document.querySelector('input[name="profile-state"]').value.trim();
     const zipCode = document.querySelector('input[name="profile-zip-code"]').value.trim();
 
-    const logoURL = []
+    const logoURL = ""
 
 
     const response = await fetch(`/api/profile/${id}`, {
