@@ -1,3 +1,4 @@
+{{!-- No Companies Added Div --}}
 <div class="container-fluid welcome">
 
     <div class="row justify-content-center">
@@ -9,24 +10,26 @@
 </div>
 
 <div class="row">
+    {{!-- Button for when no companies exist  --}}
+
     <div class="col-12 text-center mt-3 welcomeBtn">
         <a href="/dashboard/add-company">
             <button class="btn btn-sm btn-primary "><i class="fas fa-plus mr-2"></i>Add Company</button>
         </a>
     </div>
-    <div class="col-12 col-md-6 regularAddCompanyBtn">
+    {{!-- Button for when companies already exist  --}}
+    {{!-- <div class="col-12 col-md-6 regularAddCompanyBtn">
         <a href="/dashboard/add-company">
             <button class="btn btn-sm btn-primary "><i class="fas fa-plus mr-2"></i>Add
                 Company</button>
         </a>
-    </div>
+    </div> --}}
 
 
 
     <div class="col-12 col-md-6 all-companies">
         <div class="card">
             <div class="card-header">
-
                 <h1>Companies</h1>
                 {{>all-companies}}
             </div>
@@ -39,7 +42,6 @@
                 <h1>All Contacts</h1>
             </div>
             <div class="card-body">
-
                 {{>all-contacts}}
             </div>
         </div>

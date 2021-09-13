@@ -7,38 +7,26 @@
   {{! font awesome }}
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  {{! Bootstrap }}
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+  {{!-- <link rel="stylesheet" href="/css/fontawesome-all.css"> --}}
+  {{!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
   <link rel="stylesheet" href="/css/style.css" />
 
-  <title>{{title}} | Arpad: A modern invoicing platform for small businesses.</title>
+
+  <title>{{title}} | Invoice System</title>
 </head>
 
 <body>
-  {{>mobile-nav}}
-  <div class="container-fluid">
-    <div class="row justify-content-end">
+  {{>nav-main}}
 
-      {{#if logged_in}}
-        <a href="#" class="loggin_out nav-link text-dark m-2" id="logout">
-          Logout</a>
-      {{else}}
-        <a class="nav-link text-dark loggin_out " href="/login">Login</a>
-      {{/if}}
-    </div>
-  </div>
 
-  <div class="container-fluid">
-    <div class="row mt-1">
-      <div class="col-1">
-        {{>side-nav}}
-      </div>
-      <main id="main" class="col-11 og-margin">
-        {{{body}}}
-      </main>
-    </div>
-  </div>
+  {{{body}}}
+
+
+
 
 
 
@@ -51,7 +39,7 @@
   {{#if logged_in}}
     <script src="/js/logout.js"></script>
   {{/if}}
-  <script src="/js/main.js"></script>
+
 </body>
 
 </html>

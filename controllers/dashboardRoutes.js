@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Company, Project, User, Address, Contact, Invoice, Item, BillingAddress } = require("../models");
+const { Company, Project, Profile, User, Address, Contact, Invoice, Item, BillingAddress } = require("../models");
 const withAuth = require("../utils/auth");
 
 // route for /dashboard
@@ -8,6 +8,26 @@ const withAuth = require("../utils/auth");
 // Front End route for dashboard
 router.get('/', withAuth, async (req, res) => {
     try {
+        const userData = await User.findAll({
+            where: {
+                id: req.session.user_id
+            },
+            include: {
+                model: Profile,
+                attributes: [
+                    'id',
+                    'company_name',
+                    "address_1",
+                    "address_2",
+                    "city",
+                    "state",
+                    "zip_code",
+                    'user_id',
+                    "logo_url"
+                ]
+            },
+        })
+
         // Get all compainies
         const companyData = await Company.findAll({
             // gets all companies owned by the logged in user
@@ -44,10 +64,12 @@ router.get('/', withAuth, async (req, res) => {
 
         // Serialize data so the template can read it
         const companies = companyData.map((company) => company.get({ plain: true }));
+        const thisUser = userData.map((user) => user.get({ plain: true }));
         console.log(companies)
+        console.log(thisUser)
         // Pass serialized data and session flag into template
         res.render('dashboard', {
-            companies,
+            companies, thisUser,
             logged_in: req.session.logged_in,
             title: "Dashboard"
         });
@@ -55,6 +77,9 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+
 // Front End route for add company
 router.get('/add-company', withAuth, async (req, res) => {
     try {
@@ -361,7 +386,7 @@ router.get("/invoice/:id", (req, res) => {
         });
 });
 // Edit Company FRONT END Route
-router.get("/edit/:id", withAuth, (req, res) => {
+router.get("/edit-company/:id", withAuth, (req, res) => {
 
     Company.findOne({
         where: {
@@ -399,7 +424,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
     })
         .then((companyData) => {
             if (!companyData) {
-                res.status(404).json({ message: "No post found with this id" });
+                res.status(404).json({ message: "No company found with this id" });
                 return;
             }
 
@@ -418,8 +443,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-
-
 
 
 

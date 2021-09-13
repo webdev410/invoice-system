@@ -1,6 +1,6 @@
 // connects to sequelize and the models
 const sequelize = require("../config/connection");
-const { User, Company, Contact, Sent, Address, Project, Invoice, Item } = require("../models");
+const { User, Company, Contact, Sent, Address, Project, Invoice, Item, Profile } = require("../models");
 const router = require("express").Router();
 const withAuth = require('../utils/auth');
 require('dotenv').config();
@@ -62,28 +62,7 @@ router.get('/signup', (req, res) => {
     title: "Sign Up"
   });
 });
-// route for /profile
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // This line of code only pulls data for the user that is logged-in
-    const userData = await User.findAll({
-      where: {
-        id: req.session.user_id,
-      },
 
-    });
-
-    const user = userData.map((user) => user.get({ plain: true }));
-    console.log(user)
-    res.render('edit-profile', {
-      user,
-      logged_in: req.session.logged_in,
-      title: "Edit Profile"
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 // route for sent invoices
 router.get('/sent-invoices', withAuth, async (req, res) => {
   try {
@@ -105,6 +84,55 @@ router.get('/sent-invoices', withAuth, async (req, res) => {
   }
 });
 
+// route for /edit-profile
+router.get('/edit-profile', withAuth, (req, res) => {
+
+  User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
+    attributes: [
+      'id',
+      'username',
+      'email',
+
+    ],
+    include: {
+      model: Profile,
+      attributes: [
+        'id',
+        'company_name',
+        'address_1',
+        'address_2',
+        'city',
+        'state',
+        'zip_code',
+        'user_id',
+        "logo_url"
+
+      ]
+    },
+  }).then((userData) => {
+    if (!userData) {
+      res.status(404).json({ message: "No user found with this id" });
+      return;
+    }
+
+    const user = userData.get({ plain: true });
+    console.log(user)
+    res.render("edit-profile", {
+      user,
+      username: req.session.username,
+      logged_in: true,
+      title: "Edit Profile",
+    });
+  })
+
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 

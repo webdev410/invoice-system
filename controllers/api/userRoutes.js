@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 // route for creating a new user
+
+// ! need to add create profile to this route
 router.post('/', async (req, res) => {
   try {
     // take in the sign-up form and create a new user in the database

@@ -1,0 +1,4 @@
+sequelize-auto -h localhost -d process.env.DB_NAME -u process.env.DB_USER -x process.env.DB_PASSWORD -p 3306 --dialect mysql -c "./db" -o "./models"
+
+
+sequelize-auto -o "./models" -d sequelize_auto_test -h localhost -u my_username -p 5432 -x my_password -e postgres

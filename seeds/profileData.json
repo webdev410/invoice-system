@@ -1,0 +1,24 @@
+[
+	{
+		"id": 1,
+		"company_name": "Profile Company",
+		"address_1": "Profile Address-1",
+		"address_2": "Profile Address-2",
+		"city": "Profile City",
+		"state": "Profile State",
+		"zip_code": "01235",
+		"logo_url": "/img/company-logos/nike.png",
+		"user_id": 1
+	},
+	{
+		"id": 2,
+		"company_name": "Profile Company",
+		"address_1": "Profile Address-1",
+		"address_2": "Profile Address-2",
+		"city": "Profile City",
+		"state": "Profile State",
+		"zip_code": "01235",
+		"logo_url": "/img/company-logos/nike.png",
+		"user_id": 2
+	}
+]

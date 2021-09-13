@@ -11,15 +11,30 @@ Profile.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_name: {
+        logo_url: {
+            type: DataTypes.STRING,
+        },
+        company_name: {
             type: DataTypes.STRING,
 
         },
-        last_name: {
+        address_1: {
             type: DataTypes.STRING,
-
         },
-
+        address_2: {
+            type: DataTypes.STRING,
+        },
+        city: {
+            type: DataTypes.STRING,
+        },
+        state: {
+            type: DataTypes.STRING,
+        },
+        zip_code: {
+            type: DataTypes.INTEGER,
+            defaultValue: 10000,
+            allowNull: false,
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -31,7 +46,6 @@ Profile.init(
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'profile',

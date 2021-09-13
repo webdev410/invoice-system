@@ -1,137 +1,134 @@
 /* Google Font Link */
 
 .add-company-partial {
-  padding-top: 50px;
+    padding-top: 50px;
 }
 
 img {
-  width: 60%;
+    width: 60%;
 }
 
 .mobile-logo {
-  width: 50px;
+    width: 50px;
 }
 
 .dark-logo {
-  width: 15%;
-  float: right;
-  padding: 10px;
-  margin: 5px;
+    width: 15%;
+    float: right;
+    padding: 10px;
+    margin: 5px;
 }
 
 .row {
-  display: flex;
+    display: flex;
 }
 
 .nav-link {
-  color: white;
-}
-
-.custom-link {
-  color: rgba(255, 255, 255, 0.808)!important;
-}
-
-.custom-link:hover {
-  color: white!important;
+    color: white;
 }
 
 a:hover {
-  cursor: pointer;
+    text-decoration: none;
+}
+
+.custom-link {
+    color: rgba(255, 255, 255, 0.808)!important;
+}
+
+.custom-link:hover {
+    color: white!important;
+}
+
+a:hover {
+    cursor: pointer;
 }
 
 .text-cover {
-  background-color: rgb(5, 36, 92);
-  color: white;
+    background-color: rgb(5, 36, 92);
+    color: white;
 }
 
 .cover-heading {
-  text-align: center;
-  padding: 20px;
+    text-align: center;
+    padding: 20px;
 }
 
 .lead {
-  text-align: center;
-  padding: 10px;
+    text-align: center;
+    padding: 10px;
 }
 
 #main {
-  transition: margin-left .5s;
-}
-
-.mobile-nav {
-  display: none;
+    transition: margin-left .5s;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 .og-margin {
-  margin-left: 85px;
+    margin-left: 85px;
 }
 
 .login-register {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  padding: 25px;
-  border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .card {
-  width: 500px;
-  padding: 15px;
+    width: 500px;
+    padding: 15px;
 }
 
 .hide {
-  display: none !important;
+    display: none !important;
 }
 
 .welcome {
-  transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 @media (max-width: 576px) {
-  .mobile-nav {
-    display: block;
-  }
-  .nav-link {
-    color: black;
-  }
-  .loggin_out {
-    display: none;
-  }
-  .og-margin {
-    margin-left: 0px;
-  }
-  .sidebar {
-    display: none;
-  }
+    .nav-link {
+        color: black;
+    }
+    .loggin_out {
+        display: none;
+    }
+    .og-margin {
+        margin-left: 0px;
+    }
+    .sidebar {
+        display: none;
+    }
 }
 
 @media print {
-  @page {
-    size: auto;
-    /* auto is the initial value */
-    margin: 0px;
-    /* this affects the margin in the printer settings */
-    width: 100%!important;
-  }
-  nav {
-    display: none;
-  }
-  button {
-    display: none;
-  }
-  .loggin_out {
-    display: none;
-  }
-  @media print {
-    header, footer, aside, form, … {
-      display: none;
+    @page {
+        size: auto;
+        /* auto is the initial value */
+        margin: 0px;
+        /* this affects the margin in the printer settings */
+        width: 100%!important;
     }
-    article {
-      width: 100%!important;
-      padding: 0!important;
-      margin: 0!important;
+    nav {
+        display: none;
     }
-  }
+    button {
+        display: none;
+    }
+    .loggin_out {
+        display: none;
+    }
+    @media print {
+        header, footer, aside, form, … {
+            display: none;
+        }
+        article {
+            width: 100%!important;
+            padding: 0!important;
+            margin: 0!important;
+        }
+    }
 }
