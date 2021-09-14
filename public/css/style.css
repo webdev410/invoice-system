@@ -89,6 +89,10 @@ ul {
     transition: all 0.5s ease;
 }
 
+.paidBadge {
+    width: 100px;
+}
+
 @media (max-width: 576px) {
     .nav-link {
         color: black;

@@ -2,76 +2,78 @@
 	{
 		"id": 1,
 		"name": "Preliminary Design",
-		"isPaid": true,
-		"invoice_amount": 158565766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 1
 	},
 	{
 		"id": 2,
 		"name": "Start Website",
-		"isPaid": false,
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 1
 	},
 	{
 		"id": 3,
 		"name": "Finished/Deployed Website",
-		"isPaid": false,
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 1
 	},
 	{
 		"id": 4,
 		"name": "First Draft",
-		"isPaid": true,
-		"invoice_amount": 135766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 2
 	},
 	{
 		"id": 5,
 		"name": "Final Draft",
-		"isPaid": true,
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 2
 	},
 	{
 		"id": 6,
 		"name": "Database Design",
-		"isPaid": true,
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 3
 	},
 	{
 		"id": 7,
 		"name": "Implementation",
-		"isPaid": true,
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 3
 	},
 	{
 		"id": 8,
 		"name": "Preliminary Planning",
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 4
 	},
 	{
 		"id": 9,
 		"name": "Final Product",
-		"invoice_amount": 766,
-		"isPaid": true,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 4
 	},
 	{
 		"id": 10,
 		"name": "Consultation",
-		"invoice_amount": 766,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 5
 	},
 	{
 		"id": 11,
 		"name": "Final Delivery",
-		"invoice_amount": 766,
-		"isPaid": true,
+		"is_paid": false,
+		"archived": false,
 		"project_id": 5
 	}
 ]

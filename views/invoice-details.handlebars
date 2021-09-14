@@ -1,7 +1,5 @@
 {{!-- CRUD MENU --}}
 <div class="mb-2">
-
-
     <button type="button" class="btn btn-sm btn-danger delete-invoice-btn">
         <i class="fas fa-trash-alt mr-2"></i>
         Delete Invoice</button>
@@ -21,9 +19,23 @@
 
 <div class="email-content" id="invoice">
 
+    <div class="row justify-content-end">
 
-    {{!-- this is where the actual invoice template will go --}}
+
+        <div class="paid-badges">
+            {{#if invoice.is_paid}}
+                <img class="paidBadge" id="paid" src="/img/paid.png" data-state="false" alt="paid">
+            {{else}}
+                <img class="paidBadge" id="unpaid" src="/img/unpaid.png" data-state="true" alt="unpaid">
+            {{/if}}
+        </div>
+    </div>
     <div class="row justify-content-between">
+
+
+        {{!-- this is where the actual invoice template will go --}}
+
+
         {{!-- Billing Details --}}
         <div class="card ">
             <div class="card-header billing-header">
@@ -88,11 +100,6 @@
         </tbody>
     </table>
 
-</div>
-
-<div class="paid-badges">
-    <img class="badge" id="unpaid" src="/img/unpaid.png" alt="unpaid">
-    <img class="badge" id="paid" src="/img/paid.png" alt="paid">
 </div>
 
 

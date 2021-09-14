@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Profile } = require('../../models');
+const withAuth = require("../../utils/auth");
+
 // route for creating a new user
 
 // ! need to add create profile to this route
@@ -63,5 +65,26 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+// GET user and profile
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      where: {
+        id: req.session.user_id
+      },
+      include: [
+        {
+          model: Profile,
+
+        }
+      ],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

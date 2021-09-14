@@ -1,5 +1,10 @@
+
+
 async function profileFormHandler(event) {
     event.preventDefault();
+
+    const username = document.querySelector('input[name="username"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
 
     const companyName = document.querySelector('input[name="company-name"]').value.trim();
 
@@ -9,13 +14,15 @@ async function profileFormHandler(event) {
     const state = document.querySelector('input[name="profile-state"]').value.trim();
     const zipCode = document.querySelector('input[name="profile-zip-code"]').value.trim();
 
-    const logoURL = ""
+    const logoFolder = "/img/company-logos/"
+    let logoURL = logoFolder + companyName
 
 
-    const response = await fetch(`/api/profile/${id}`, {
+    const response = await fetch(`/api/profile/`, {
         method: 'PUT',
         body: JSON.stringify({
-            id: id,
+            username,
+            email,
             companyName,
             address1,
             address2,

@@ -3,9 +3,12 @@ const { Invoice, Item, BillingAddress, } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all invoices - working
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const invoiceData = await Invoice.findAll({
+            where: [
+                archived = false,
+            ],
             include: [
                 {
                     model: Item,
@@ -26,9 +29,17 @@ router.get('/', async (req, res) => {
 });
 
 // GET one invoice - working
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const invoiceData = await Invoice.findByPk(req.params.id, {
+            attributes: [
+                'id',
+                'name',
+
+                'is_paid',
+                'archived',
+
+            ],
             include: [
                 {
                     model: Item,

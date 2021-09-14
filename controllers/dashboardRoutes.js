@@ -64,12 +64,12 @@ router.get('/', withAuth, async (req, res) => {
 
         // Serialize data so the template can read it
         const companies = companyData.map((company) => company.get({ plain: true }));
-        const thisUser = userData.map((user) => user.get({ plain: true }));
+        const user = userData.map((user) => user.get({ plain: true }));
         console.log(companies)
-        console.log(thisUser)
+        console.log(user)
         // Pass serialized data and session flag into template
         res.render('dashboard', {
-            companies, thisUser,
+            companies, user,
             logged_in: req.session.logged_in,
             title: "Dashboard"
         });
@@ -170,7 +170,8 @@ router.get('/add-project/:id', (req, res) => {
                     attributes: [
                         "id",
                         "name",
-                        "invoice_amount"
+                        "is_paid",
+                        "archived"
                     ],
                     include: {
                         model: Item,
@@ -262,7 +263,8 @@ router.get("/company/:id", (req, res) => {
                     attributes: [
                         "id",
                         "name",
-                        "invoice_amount"
+                        "is_paid",
+                        "archived"
                     ]
                 },
             }
@@ -307,7 +309,9 @@ router.get("/project/:id", (req, res) => {
                 attributes: [
                     "id",
                     "name",
-                    "invoice_amount"
+                    "is_paid",
+                    "archived"
+
                 ],
             },
         ],
@@ -340,7 +344,9 @@ router.get("/invoice/:id", (req, res) => {
         attributes: [
             "id",
             "name",
-            "invoice_amount"
+            'is_paid',
+            'archived'
+
         ],
 
         include: [
