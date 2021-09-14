@@ -7,6 +7,8 @@ let lineTotal;
 let totalArray = [];
 
 let archiveBtn = document.querySelector(".archiveBtn");
+let unarchiveBtn = document.querySelector(".unarchiveBtn");
+
 let deleteBtn = document.querySelector(".delete-item-btn");
 let paidBtn = document.querySelector(".paidBtn");
 let unpaidBtn = document.querySelector(".unpaidBtn");
@@ -66,6 +68,31 @@ async function markArchived(event) {
 
     if (response.ok) {
         alert("Successfully archived invoice!");
+        window.location.replace("/archived");
+
+    } else {
+        alert(response.statusText);
+    }
+}
+async function markUnarchived(event) {
+    event.preventDefault();
+
+    const id = window.location.toString().split("/")[
+        window.location.toString().split("/").length - 1
+    ];
+
+    const response = await fetch(`/api/invoice/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            archived: false,
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (response.ok) {
+        alert("Successfully restored invoice!");
         window.location.replace("/archived");
 
     } else {
@@ -134,6 +161,7 @@ async function markUnpaid(event) {
 getTotal();
 
 archiveBtn.addEventListener("click", markArchived);
+unarchiveBtn.addEventListener("click", markUnarchived);
 paidBtn.addEventListener("click", markPaid);
 unpaidBtn.addEventListener("click", markUnpaid);
 

@@ -91,12 +91,8 @@ router.get('/archived', withAuth, async (req, res) => {
       where: {
         archived: true
       },
-      include: {
-        model: Archived
-      }
+
     });
-
-
     const invoice = archivedData.map((invoice) => invoice.get({ plain: true }));
 
     console.log(invoice)
