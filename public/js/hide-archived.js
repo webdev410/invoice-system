@@ -1,1 +1,0 @@
-const invoiceLink = document.querySelectorAll

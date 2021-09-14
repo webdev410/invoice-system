@@ -9,6 +9,8 @@ let totalArray = [];
 let archiveBtn = document.querySelector(".archiveBtn");
 let deleteBtn = document.querySelector(".delete-item-btn");
 let paidBtn = document.querySelector(".paidBtn");
+let unpaidBtn = document.querySelector(".unpaidBtn");
+
 let paidBadge = document.querySelector("#paid");
 let unpaidBadge = document.querySelector("#unpaid");
 
@@ -90,31 +92,49 @@ async function markPaid(event) {
     });
 
     if (response.ok) {
-        alert("invoice marked as paid");
         document.location.reload();
-        handleBadges()
+        alert("invoice marked as paid");
 
     } else {
         alert(response.statusText);
     }
 
 }
-function handleBadges() {
-    // console.log('handlebadges')
-    paidBadge.setAttribute("data-state", "true")
-    unpaidBadge.setAttribute("data-state", "false")
+async function markUnpaid(event) {
+    event.preventDefault();
 
-    paidBadge.getAttribute("data-state")
-    unpaidBadge.getAttribute("data-state")
 
-    // document.location.reload();
+    const id = window.location.toString().split("/")[
+        window.location.toString().split("/").length - 1
+    ];
+
+    const response = await fetch(`/api/invoice/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            isPaid: false,
+        }),
+
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (response.ok) {
+        alert("invoice marked as unpaid");
+        document.location.reload();
+
+    } else {
+        alert(response.statusText);
+    }
 
 }
+
 
 getTotal();
 
 archiveBtn.addEventListener("click", markArchived);
 paidBtn.addEventListener("click", markPaid);
+unpaidBtn.addEventListener("click", markUnpaid);
 
 document.querySelector("#invoice-table").addEventListener("click", (event) => {
     if (event.target.classList.contains("delete-item-btn")) {

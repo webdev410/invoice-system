@@ -12,9 +12,20 @@
     <button type="button" class="btn btn-sm btn-primary export-pdf">
         <i class="fas fa-file-download mr-2"></i>Export PDF
     </button>
-    <button type="button" class="btn btn-sm btn-success paidBtn">
-        <i class="far fa-money-bill-alt mr-2"></i>Mark Paid
-    </button>
+
+    {{#if invoice.is_paid}}
+        <button type="button" class="btn btn-sm btn-danger unpaidBtn"> <i class="far fa-money-bill-alt mr-2"></i>Mark
+            UnPaid </button>
+        <button type="button" class="hide btn btn-sm btn-success paidBtn">
+            <i class="far fa-money-bill-alt mr-2"></i>Mark Paid
+        </button>
+    {{else}}
+        <button type="button" class="hide btn btn-sm btn-danger unpaidBtn"> <i
+                class="far fa-money-bill-alt mr-2"></i>Mark UnPaid </button>
+        <button type="button" class="btn btn-sm btn-success paidBtn">
+            <i class="far fa-money-bill-alt mr-2"></i>Mark Paid
+        </button>
+    {{/if}}
 </div>
 
 <div class="email-content" id="invoice">
