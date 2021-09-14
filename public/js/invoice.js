@@ -66,7 +66,7 @@ async function markArchived(event) {
 
     if (response.ok) {
         alert("Successfully archived invoice!");
-        window.location.replace("/dashboard");
+        window.location.replace("/archived");
 
     } else {
         alert(response.statusText);

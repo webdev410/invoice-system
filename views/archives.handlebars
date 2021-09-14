@@ -1,0 +1,27 @@
+<h1>Archived Invoices</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Acrhived By</th>
+            <th scope="col">Invoice Name</th>
+            <th scope="col">Invoice Link</th>
+            <th scope="col">Paid</th>
+            <th scope="col">due_date</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each invoice}}
+            <tr>
+                <th scope="row">{{user_id}}</th>
+                <th>{{name}}</th>
+                <td><a href="/dashboard/invoice/ {{project_id}}">Project {{project_id}} Link</a></td>
+                <td>{{is_paid}}</td>
+                <td>{{due_date}}</td>
+
+            </tr>
+        {{/each}}
+
+    </tbody>
+</table>

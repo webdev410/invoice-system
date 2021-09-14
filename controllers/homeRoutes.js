@@ -1,6 +1,6 @@
 // connects to sequelize and the models
 const sequelize = require("../config/connection");
-const { User, Company, Contact, Sent, Address, Project, Invoice, Item, Profile } = require("../models");
+const { User, Company, Contact, Sent, Address, Project, Invoice, Item, Profile, Archived, } = require("../models");
 const router = require("express").Router();
 const withAuth = require('../utils/auth');
 require('dotenv').config();
@@ -78,6 +78,32 @@ router.get('/sent-invoices', withAuth, async (req, res) => {
       sent,
       logged_in: req.session.logged_in,
       title: "Sent Invoices"
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+// route for archived invoices
+router.get('/archived', withAuth, async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const archivedData = await Invoice.findAll({
+      where: {
+        archived: true
+      },
+      include: {
+        model: Archived
+      }
+    });
+
+
+    const invoice = archivedData.map((invoice) => invoice.get({ plain: true }));
+
+    console.log(invoice)
+    res.render('archives', {
+      invoice,
+      logged_in: req.session.logged_in,
+      title: "Archived Invoices"
     });
   } catch (err) {
     res.status(500).json(err);

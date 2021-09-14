@@ -130,6 +130,7 @@ router.delete('/:id', async (req, res) => {
 });
 // UPDATE INVOICE
 router.put('/:id', (req, res) => {
+
     //Calls the update method on the Invoice model
     Invoice.update(
         {
@@ -152,6 +153,8 @@ router.put('/:id', (req, res) => {
             console.log(err);
             res.json(err);
         });
+
+
 });
 
 

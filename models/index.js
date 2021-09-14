@@ -8,6 +8,7 @@ const Item = require('./Item');
 const Sent = require('./Sent');
 const BillingAddress = require('./BillingAddress');
 const Profile = require('./Profile');
+const Archived = require('./Archived');
 
 
 Company.hasOne(Contact, {
@@ -61,10 +62,18 @@ User.hasMany(Sent, {
     onDelete: "cascade"
 })
 
+
 Invoice.hasMany(Sent, {
     foreignKey: "invoice_id",
     onDelete: "cascade"
 
 })
+Archived.belongsTo(Invoice, {
+    foreignKey: "invoice_id",
+    onDelete: "no action"
 
-module.exports = { User, Company, Contact, Address, Project, Profile, Invoice, Item, BillingAddress, Sent };
+})
+
+
+
+module.exports = { User, Company, Contact, Address, Project, Profile, Invoice, Item, BillingAddress, Sent, Archived };
