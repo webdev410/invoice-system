@@ -27,9 +27,14 @@
 
     <div class="card" style="width: 18rem;">
         <ul class="list-group list-group-flush">
+
+
             {{#each project.invoices}}
-                <a href="/dashboard/invoice/{{id}}">
-                    <li class="list-group-item">{{name}}</li>
+                {{#if archived}}
+                {{else}}
+                    <a href="/dashboard/invoice/{{id}}">
+                        <li class="list-group-item">{{name}}</li>
+                {{/if}}
             {{/each}}
         </ul>
     </div>
