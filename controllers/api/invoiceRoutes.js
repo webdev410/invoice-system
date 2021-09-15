@@ -136,7 +136,7 @@ router.put('/:id', (req, res) => {
         {
             // All the fields you can update and the data attached to the request body.
             archived: req.body.archived,
-            is_paid: req.body.isPaid
+            is_paid: req.body.isPaid,
 
         },
         {

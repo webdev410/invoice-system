@@ -9,12 +9,17 @@
     <button type="button" class="btn btn-sm btn-primary export-pdf">
         <i class="fas fa-file-download mr-2"></i>Export PDF
     </button>
-    <button type="button" class="btn btn-sm btn-secondary archiveBtn">
-        <i class="far fa-archive mr-2"></i>Archive Invoice
-    </button>
+
+
     <button type="button" class="btn btn-sm btn-secondary unarchiveBtn">
         <i class="far fa-archive mr-2"></i>Restore Invoice
     </button>
+
+    <button type="button" class="btn btn-sm btn-secondary archiveBtn">
+        <i class="far fa-archive mr-2"></i>Archive Invoice
+    </button>
+
+
 
     {{#if invoice.is_paid}}
         <button type="button" class="btn btn-sm btn-danger unpaidBtn"> <i class="far fa-money-bill-alt mr-2"></i>Mark

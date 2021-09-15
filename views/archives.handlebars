@@ -2,13 +2,12 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Acrhived By</th>
+            <th scope="col">Archived By</th>
             <th scope="col">Invoice Name</th>
             <th scope="col">Invoice Link</th>
             <th scope="col">Paid</th>
             <th scope="col">due_date</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Message</th>
+
         </tr>
     </thead>
     <tbody>
@@ -16,9 +15,9 @@
             <tr>
                 <th scope="row">{{user_id}}</th>
                 <th>{{name}}</th>
-                <td><a href="/dashboard/invoice/ {{project_id}}">Project {{project_id}} Link</a></td>
+                <td><a href="/dashboard/invoice/{{id}}">Open Invoice</a></td>
                 <td>{{is_paid}}</td>
-                <td>{{due_date}}</td>
+                <td>{{format_date due_date}}</td>
 
             </tr>
         {{/each}}
