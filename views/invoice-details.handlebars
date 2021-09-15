@@ -36,11 +36,17 @@
     <div class="row justify-content-end">
 
 
-        <div class="paid-badges">
+        <div class="badges">
+            {{#if invoice.archived}}
+                <span class="badge badge-dark mr-3 mb-2">ARCHIVED</span>
+            {{/if}}
+
             {{#if invoice.is_paid}}
-                <img class="paidBadge" id="paid" src="/img/paid.png" data-state="false" alt="paid">
+                {{!-- <img class="paidBadge" id="paid" src="/img/paid.png" data-state="false" alt="paid"> --}}
+                <span class="badge badge-success mr-3 mb-2">PAID</span>
             {{else}}
-                <img class="paidBadge" id="unpaid" src="/img/unpaid.png" data-state="true" alt="unpaid">
+                {{!-- <img class="paidBadge" id="unpaid" src="/img/unpaid.png" data-state="true" alt="unpaid"> --}}
+                <span class="badge badge-danger mr-3 mb-2">UNPAID</span>
             {{/if}}
         </div>
     </div>

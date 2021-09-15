@@ -93,7 +93,7 @@ async function markUnarchived(event) {
 
     if (response.ok) {
         alert("Successfully restored invoice!");
-        window.location.replace("/archived");
+        window.location.replace(`/dashboard/invoice/${id}`);
 
     } else {
         alert(response.statusText);
