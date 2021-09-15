@@ -1,3 +1,9 @@
+:root {
+    --primary: #D62828;
+    --secondary: #00304;
+    --yellow: #FCBF49;
+}
+
 /* Google Font Link */
 
 * {
@@ -14,6 +20,19 @@ img {
 
 .mobile-logo {
     width: 25px;
+}
+
+.min-vh-100 {
+    height: calc(100%-735px) !important;
+}
+
+.yellow-book {
+    background-color: var(--yellow);
+}
+
+.border-box-hb {
+    border: 3px solid black;
+    padding: 165px;
 }
 
 .dark-logo {

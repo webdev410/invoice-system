@@ -29,6 +29,7 @@ router.get('/', async (req, res) => {
       title: "Home"
     });
   } catch (err) {
+    // res.status(500).json(err);
     res.status(500).json(err);
   }
 });
@@ -69,8 +70,6 @@ router.get('/sent-invoices', withAuth, async (req, res) => {
     // Get all projects and JOIN with user data
     const sentData = await Sent.findAll({
     });
-
-
     const sent = sentData.map((sent) => sent.get({ plain: true }));
 
     console.log(sent)
@@ -107,7 +106,7 @@ router.get('/archived', withAuth, async (req, res) => {
 });
 
 // route for /edit-profile
-router.get('/edit-profile/', withAuth, (req, res) => {
+router.get('/edit-profile/:id', withAuth, (req, res) => {
 
   User.findOne({
     where: {
@@ -156,6 +155,53 @@ router.get('/edit-profile/', withAuth, (req, res) => {
     });
 });
 
+router.get('/handbook-cover/', withAuth, (req, res) => {
 
+  User.findOne({
+    where: {
+      id: req.session.user_id,
+    },
+    attributes: [
+      'id',
+      'username',
+      'email',
+
+    ],
+    include: {
+      model: Profile,
+      attributes: [
+        'id',
+        'company_name',
+        'address_1',
+        'address_2',
+        'city',
+        'state',
+        'zip_code',
+        'user_id',
+        "logo_url"
+
+      ]
+    },
+  }).then((userData) => {
+    if (!userData) {
+      res.status(404).json({ message: "No user found with this id" });
+      return;
+    }
+
+    const user = userData.get({ plain: true });
+    console.log(user)
+    res.render("handbook-cover", {
+      user,
+      username: req.session.username,
+      logged_in: true,
+      title: "Handbook Cover",
+    });
+  })
+
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

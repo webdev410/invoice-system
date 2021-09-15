@@ -19,8 +19,6 @@
         <i class="far fa-archive mr-2"></i>Archive Invoice
     </button>
 
-
-
     {{#if invoice.is_paid}}
         <button type="button" class="btn btn-sm btn-danger unpaidBtn"> <i class="far fa-money-bill-alt mr-2"></i>Mark
             UnPaid </button>
@@ -37,42 +35,24 @@
 </div>
 
 <div class="email-content" id="invoice">
-
-    <div class="row justify-content-end">
-
-
+    <div class="row justify-content-end mb-2 mr-2">
         <div class="badges">
             {{#if invoice.archived}}
-                <span class="badge badge-dark mr-3 mb-2">ARCHIVED</span>
+                <span class="badge badge-dark mr-3">ARCHIVED</span>
             {{/if}}
 
             {{#if invoice.is_paid}}
                 {{!-- <img class="paidBadge" id="paid" src="/img/paid.png" data-state="false" alt="paid"> --}}
-                <span class="badge badge-success mr-3 mb-2">PAID</span>
+                <span class="badge badge-success mr-3">PAID</span>
             {{else}}
                 {{!-- <img class="paidBadge" id="unpaid" src="/img/unpaid.png" data-state="true" alt="unpaid"> --}}
-                <span class="badge badge-danger mr-3 mb-2">UNPAID</span>
+                <span class="badge badge-danger mr-3">UNPAID</span>
             {{/if}}
         </div>
     </div>
     <div class="row justify-content-between">
-
-
         {{!-- this is where the actual invoice template will go --}}
-
-
-        {{!-- Billing Details --}}
-        <div class="card ">
-            <div class="card-header billing-header">
-                <h3>Bill To:</h3>
-            </div>
-            <div class="card-body billing-body">
-                <h4 class="mb-4">{{invoice.BillingAddress.company_name}} </h4>
-                {{invoice.BillingAddress.address_1}}, {{invoice.BillingAddress.address_2}}</p>
-                <p>{{invoice.BillingAddress.city}}, {{invoice.BillingAddress.state}} {{invoice.BillingAddress.zip_code}}
-                </p>
-            </div>
-        </div>
+        {{!-- Invoice Details --}}
         <div class="card ">
             <h2 class="card-header">Invoice Details</h2>
             <div class="card-body d-flex justify-content-between invoice-header">
@@ -87,6 +67,18 @@
                 <p class="invoice-total">$</p>
             </div>
 
+        </div>
+        {{!-- Billing Details --}}
+        <div class="card ">
+            <div class="card-header billing-header">
+                <h3>Bill To:</h3>
+            </div>
+            <div class="card-body billing-body">
+                <h4 class="mb-4">{{invoice.BillingAddress.company_name}} </h4>
+                {{invoice.BillingAddress.address_1}}, {{invoice.BillingAddress.address_2}}</p>
+                <p>{{invoice.BillingAddress.city}}, {{invoice.BillingAddress.state}} {{invoice.BillingAddress.zip_code}}
+                </p>
+            </div>
         </div>
     </div>
 
