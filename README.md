@@ -13,6 +13,8 @@ This web app can manage and send invoices from the interface. Users can manage p
 
 ## Demo Video
 
+[WATCH VIDEO](https://www.youtube.com/watch?v=SsjCEMJn_Is&t=90s)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SsjCEMJn_Is" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Screenshots
